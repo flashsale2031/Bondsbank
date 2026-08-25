@@ -1,0 +1,49 @@
+{
+  "version": "3.0",
+  "environments": [
+    "sandbox",
+    "production"
+  ],
+  "artifacts": [
+    {
+      "id": "https_server_certificate",
+      "purpose": "Google-to-issuer/server TLS",
+      "minimum_tls": "1.2",
+      "private_key_storage": "HSM_or_approved_KMS",
+      "issuer_required": true
+    },
+    {
+      "id": "mtls_client_certificate",
+      "purpose": "issuer-to-Google mTLS",
+      "private_key_storage": "HSM_or_approved_KMS",
+      "google_validation_required": true
+    },
+    {
+      "id": "google_wallet_pgp_keypair",
+      "purpose": "server-side push provisioning application-layer encryption",
+      "algorithm": "RSA",
+      "minimum_bits": 2048,
+      "maximum_lifetime_years": 2,
+      "rotation_required": true,
+      "dual_key_support_required": true
+    },
+    {
+      "id": "tsp_opc_keys",
+      "purpose": "issuer/TSP opaque payment card encryption",
+      "provider": "authorized_TSP",
+      "production_activation_requires_key_exchange": true
+    }
+  ],
+  "transaction_certificate_events": [
+    "provisioning_requested",
+    "certificate_validation_started",
+    "certificate_validated",
+    "opc_created",
+    "push_provisioning_submitted",
+    "wallet_token_created",
+    "provisioning_completed",
+    "provisioning_failed",
+    "certificate_rotated",
+    "certificate_revoked"
+  ]
+}

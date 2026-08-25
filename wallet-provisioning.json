@@ -1,0 +1,64 @@
+{
+  "version": "2.9",
+  "supported_wallets": [
+    {
+      "id": "apple_pay",
+      "label": "Apple Pay",
+      "platforms": [
+        "ios",
+        "watchos"
+      ],
+      "status": "integration_ready"
+    },
+    {
+      "id": "google_wallet",
+      "label": "Google Wallet",
+      "platforms": [
+        "android"
+      ],
+      "status": "integration_ready"
+    },
+    {
+      "id": "other_wallets",
+      "label": "Other supported issuer wallets",
+      "platforms": [
+        "provider_dependent"
+      ],
+      "status": "adapter_ready"
+    }
+  ],
+  "card_types": [
+    "virtual_debit",
+    "virtual_credit"
+  ],
+  "ui": {
+    "eligible_card_action": "Add to Wallet",
+    "show_status": [
+      "not_added",
+      "provisioning",
+      "active",
+      "suspended",
+      "removed",
+      "ineligible"
+    ],
+    "never_display": [
+      "pan",
+      "cvv",
+      "pin",
+      "token_secret"
+    ]
+  },
+  "server_endpoints": {
+    "POST /v1/cards/{cardId}/wallet-provisioning": "create provisioning session",
+    "GET /v1/cards/{cardId}/wallets": "list wallet token statuses",
+    "POST /v1/cards/{cardId}/wallets/{walletId}/suspend": "suspend wallet token",
+    "POST /v1/cards/{cardId}/wallets/{walletId}/resume": "resume wallet token",
+    "DELETE /v1/cards/{cardId}/wallets/{walletId}": "remove wallet token"
+  },
+  "security": {
+    "server_side_secrets_only": true,
+    "use_device_token_not_pan": true,
+    "audit_provisioning_events": true,
+    "require_authorized_card_issuer": true
+  }
+}

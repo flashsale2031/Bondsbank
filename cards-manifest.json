@@ -1,0 +1,33 @@
+{
+  "feature": "cards",
+  "version": "1.0",
+  "accountTypes": [
+    "checking",
+    "savings",
+    "business",
+    "business_savings",
+    "credit",
+    "business_credit",
+    "ira",
+    "ledger",
+    "vault"
+  ],
+  "cardTypes": {
+    "checking": "virtual_debit",
+    "savings": "virtual_debit",
+    "business": "virtual_debit",
+    "business_savings": "virtual_debit",
+    "credit": "virtual_credit",
+    "business_credit": "virtual_credit",
+    "ira": "virtual_debit",
+    "ledger": "virtual_debit",
+    "vault": "virtual_debit"
+  },
+  "controls": [
+    "lock",
+    "unlock",
+    "replace"
+  ],
+  "replacement": "close_then_regenerate",
+  "sensitiveDataPolicy": "no_pan_cvv_pin_storage"
+}

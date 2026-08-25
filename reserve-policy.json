@@ -1,0 +1,17 @@
+{
+  "status": "pending_external_reserve_attestation",
+  "ownerEmail": "bondsbank@gmail.com",
+  "bondsCoin": {
+    "symbol": "BONDS",
+    "sandboxMintUnits": "100000000000",
+    "reserveRequirement": "100% verified USD or eligible USD-denominated reserve assets",
+    "redeemability": "disabled_until_attested"
+  },
+  "bondsBankCreditTokens": {
+    "symbol": "BBCT",
+    "sandboxMintUnits": "100000000000",
+    "reserveRequirement": "100% verified reserve/collateral policy approved by the issuer and custodian",
+    "redeemability": "disabled_until_attested"
+  },
+  "noRealAssetsClaimed": true
+}

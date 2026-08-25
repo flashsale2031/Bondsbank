@@ -1,0 +1,18 @@
+{
+  "required": [
+    "idempotencyKey",
+    "userId",
+    "product"
+  ],
+  "properties": {
+    "product": {
+      "type": "string"
+    },
+    "requiresReserve": {
+      "type": "boolean"
+    },
+    "idempotencyKey": {
+      "type": "string"
+    }
+  }
+}

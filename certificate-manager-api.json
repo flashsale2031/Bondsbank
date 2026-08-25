@@ -1,0 +1,10 @@
+{
+  "POST /v1/wallet/google/certificates/csr": "create a CSR request record",
+  "POST /v1/wallet/google/certificates/import": "register a CA-issued certificate",
+  "POST /v1/wallet/google/keys/register": "register public key metadata",
+  "POST /v1/wallet/google/keys/rotate": "stage a new key while retaining the old key",
+  "POST /v1/wallet/google/certificates/validate": "validate chain, expiry, EKU and environment",
+  "POST /v1/wallet/google/qualification/transaction-test": "record a sandbox qualification transaction",
+  "GET /v1/wallet/google/qualification/status": "return qualification checklist status",
+  "POST /v1/wallet/google/certificates/revoke": "mark certificate revoked and disable dependent provisioning"
+}

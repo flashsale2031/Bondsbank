@@ -1,0 +1,21 @@
+{
+  "items": [
+    "Authorized Google Wallet issuer account configured",
+    "Issuer details and required agreements completed",
+    "PIAID obtained where required",
+    "Sandbox public-key exchange completed",
+    "Server HTTPS certificate validated",
+    "mTLS certificate validated",
+    "PGP key exchange completed",
+    "Multiple-key rotation tested",
+    "TSP integration completed",
+    "OPC generated and TSP-validated",
+    "echo connectivity test passed",
+    "pushProvisioningNotification test passed",
+    "Required Google test cases passed",
+    "Production key exchange completed",
+    "Production certificates activated",
+    "Production launch approval completed"
+  ],
+  "qualification_gate": "all_required_items"
+}

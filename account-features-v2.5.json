@@ -1,0 +1,51 @@
+{
+  "version": "2.5",
+  "design_basis": "Modern U.S. banking feature set informed by current Chase, Bank of America, and Wells Fargo public business-banking capabilities. No bank branding or proprietary feature is represented as a Bonds Bank affiliation.",
+  "shared": {
+    "digital_banking": ["web_dashboard", "mobile_dashboard", "account_aggregation", "search_and_filter_transactions", "download_statements", "paperless_statements"],
+    "security": ["biometric_or_device_unlock", "2fa", "security_alerts", "login_history", "trusted_devices", "card_lock", "transaction_alerts", "fraud_monitoring", "secure_messaging"],
+    "money_movement": ["internal_transfers", "scheduled_transfers", "external_bank_linking", "ACH", "wire_where_eligible", "real_time_rails_where_eligible"],
+    "service": ["in_app_support", "secure_document_upload", "dispute_center", "tax_documents", "fee_transparency"]
+  },
+  "account_types": {
+    "checking": {
+      "role": "primary_personal_spending_and_cash_management",
+      "features": ["direct_deposit", "early_paycheck_eligibility", "bill_pay", "mobile_check_deposit", "ATM_access", "contactless_debit", "digital_wallets", "overdraft_preference_controls", "low_balance_alerts", "recurring_payments", "payees", "account_number_and_routing_display", "cash_deposit_workflow_where_supported", "budgets_and_spending_categories"]
+    },
+    "savings": {
+      "role": "personal_savings_and_reserves",
+      "features": ["savings_goals", "automatic_savings_rules", "scheduled_transfers", "interest_accrual_display", "rate_and_APY_display", "balance_alerts", "mobile_check_deposit_where_supported", "statement_history", "beneficiary_designation_where_supported"]
+    },
+    "business": {
+      "role": "business_operating_checking",
+      "features": ["business_debit", "digital_wallets", "POS_and_payment_acceptance", "invoicing", "payment_links", "same_day_or_fast_settlement_where_provider_supported", "ACH_origination_where_approved", "wire_controls", "employee_cards", "user_roles", "dual_approval", "transaction_limits", "cash_flow_dashboard", "accounting_exports", "QuickBooks_or_equivalent_accounting_integration", "payroll_integration", "vendor_payments", "fraud_controls", "check_controls", "ACH_debit_controls", "business_alerts", "mobile_deposit", "cash_deposit_workflow_where_supported"]
+    },
+    "business_savings": {
+      "role": "business_reserves_and_cash_management",
+      "features": ["savings_goals", "automatic_reserve_transfers", "interest_accrual_display", "rate_and_APY_display", "linked_business_checking", "cash_flow_reserve_rules", "balance_alerts", "statement_history", "user_permissions"]
+    },
+    "credit": {
+      "role": "consumer_revolving_credit",
+      "features": ["credit_limit_display", "available_credit", "APR_display", "minimum_payment", "payment_due_date", "autopay", "scheduled_payments", "paperless_statements", "transaction_alerts", "card_lock", "digital_wallets", "virtual_card", "replace_card", "dispute_transactions", "credit_line_change_request", "credit_score_and_factors_where_provider_supported", "payment_history", "cash_advance_controls_where_product_allows", "balance_transfer_controls_where_product_allows", "credit_account_security_center"]
+    },
+    "business_credit": {
+      "role": "business_revolving_credit_and_expense_management",
+      "features": ["credit_limit_display", "available_credit", "APR_display", "payment_due_date", "autopay", "employee_cards", "employee_spend_limits", "merchant_category_controls", "purchase_approvals", "virtual_cards", "card_lock", "replace_card", "expense_categories", "receipt_capture", "accounting_exports", "user_roles", "dual_approval", "transaction_alerts", "fraud_monitoring", "dispute_center", "business_credit_reporting_where_supported", "business_credit_security_center"]
+    },
+    "ira": {
+      "role": "retirement_account_and_tax_advantaged_savings",
+      "features": ["contribution_tracking", "annual_contribution_limit_display", "contribution_year_selection", "beneficiary_management", "tax_document_center", "distribution_request_workflow", "required_minimum_distribution_tracking_when_applicable", "rollover_workflow", "transfer_workflow", "investment_or_cash_sweep_options_where_custodian_supported", "statement_history", "secure_documents", "two_factor_authentication"],
+      "card_note": "A debit/credit card is not a standard IRA feature and must not be enabled against IRA assets unless the authorized custodian and applicable product rules expressly permit it."
+    },
+    "ledger": {
+      "role": "internal_controlled_cash_and_accounting_ledger",
+      "features": ["cash_deposit_intake", "deposit_reconciliation", "double_entry_journal", "fund_distribution", "posting_controls", "reversal_controls", "immutable_audit_trail", "approval_workflows", "transaction_search", "document_retention", "source_of_funds_capture", "cash_denomination_record", "exception_queue", "daily_reconciliation", "period_close", "accounting_exports"],
+      "card_note": "Ledger is an internal accounting/control account and should not receive a customer payment card by default."
+    },
+    "vault": {
+      "role": "restricted_reserve_and_custody_ledger",
+      "features": ["dual_control", "segregated_balance_views", "reserve_attestation_records", "custody_records", "restricted_transfers", "approval_workflow", "immutable_audit_trail", "reconciliation", "document_retention", "asset_and_liability_reporting"],
+      "card_note": "Vault is a restricted reserve/custody account and should not receive a spending card by default."
+    }
+  }
+}

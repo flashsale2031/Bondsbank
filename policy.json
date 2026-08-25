@@ -1,0 +1,59 @@
+{
+  "version": "2.7",
+  "name": "Checking & Savings Unified Account",
+  "trigger": "successful_savings_account_open",
+  "behavior": {
+    "automatically_create_unified_account": true,
+    "automatically_transfer_and_merge_funds": true,
+    "display_order": [
+      "checking_balance",
+      "savings_balance",
+      "combined_available_balance"
+    ],
+    "checking_balance_display": "above",
+    "savings_balance_display": "below",
+    "combined_balance_display": "below_components",
+    "preserve_component_ledgers": true,
+    "preserve_transaction_history": true,
+    "preserve_statements": true
+  },
+  "transfer": {
+    "source": "existing_savings_account",
+    "destination": "existing_checking_account",
+    "atomic": true,
+    "idempotent": true,
+    "requires_successful_account_open": true,
+    "creates_audit_record": true,
+    "does_not_duplicate_funds": true
+  },
+  "ui": {
+    "title": "Checking & Savings",
+    "layout": [
+      {
+        "label": "Checking",
+        "position": 1,
+        "balance": "checking_balance"
+      },
+      {
+        "label": "Savings",
+        "position": 2,
+        "balance": "savings_balance"
+      },
+      {
+        "label": "Combined Available",
+        "position": 3,
+        "balance": "combined_available_balance"
+      }
+    ],
+    "component_accounts_remain_selectable": true
+  },
+  "safety": {
+    "no_duplicate_posting": true,
+    "reconcile_before_and_after_transfer": true,
+    "record_source_and_destination_account_ids": true,
+    "record_amount": true,
+    "record_timestamp": true,
+    "record_authorization_context": true,
+    "support_reversal": true
+  }
+}

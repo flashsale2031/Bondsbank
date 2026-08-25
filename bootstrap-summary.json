@@ -1,0 +1,8 @@
+{
+  "owner":"bondsbank@gmail.com",
+  "createdAccountTypes":["business","credit","business_credit","ledger","vault"],
+  "existingTokenizedAccounts":["checking","savings","business","business_savings"],
+  "vaultAllocations":["100000000000 BONDS","100000000000 BBCT"],
+  "financialStatus":"simulation_only_pending_external_reserve_attestation",
+  "liveSettlement":"disabled"
+}

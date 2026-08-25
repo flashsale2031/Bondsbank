@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "policy": "virtual-card-autogeneration",
+  "account_types": {
+    "checking": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "savings": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "business": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "business_savings": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "credit": {
+      "initial_card_type": "virtual_credit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "business_credit": {
+      "initial_card_type": "virtual_credit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "ira": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "ledger": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    },
+    "vault": {
+      "initial_card_type": "virtual_debit",
+      "autogenerate_on_account_open": true,
+      "replace": {
+        "action": "close_current_and_regenerate",
+        "preserve_account_link": true
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "department": "Bonds Bank Insurance Department",
+  "mode": "compliance-orchestration",
+  "productionActivation": false,
+  "principle": "No product is represented as insured unless an authorized insurer, custodian, or statutory insurance program has verified applicable coverage.",
+  "policies": [
+    {"id":"fdic-deposit-insurance","productClasses":["deposit"],"enabled":true,"provider":"FDIC","coverageLimitUsd":250000,"scope":"per depositor, per insured bank, per ownership category; subject to FDIC requirements"},
+    {"id":"retirement-deposit-insurance","productClasses":["retirement"],"enabled":true,"provider":"FDIC-or-applicable-insurer","coverageLimitUsd":250000,"scope":"only when held at an appropriately insured institution and all requirements are met"},
+    {"id":"sipc-custody-protection","productClasses":["custody"],"enabled":false,"provider":"SIPC","coverageLimitUsd":500000,"cashLimitUsd":250000,"scope":"only for eligible securities/cash at a SIPC-member broker-dealer; not general bank deposits or tokens"},
+    {"id":"card-network-issuer-protection","productClasses":["card"],"enabled":false,"provider":"issuer-or-program-insurer","scope":"must be supplied by the actual issuer/program; not inferred from Visa/Mastercard branding"},
+    {"id":"payments-operational-risk","productClasses":["payments"],"enabled":false,"provider":"authorized-insurance-carrier","scope":"merchant/payment operational coverage must be contractually evidenced"},
+    {"id":"token-reserve-and-custody","productClasses":["token"],"enabled":false,"provider":"authorized-custodian-and-insurer","scope":"token reserve, custody, and loss protection must be separately documented; no statutory deposit-insurance claim"},
+    {"id":"ledger-operational-controls","productClasses":["ledger"],"enabled":false,"provider":"internal-controls-and-insurer","scope":"ledger errors/fraud require contractual controls and applicable insurance"}
+  ],
+  "automaticActions": [
+    "calculate coverage eligibility",
+    "track coverage evidence and expiration",
+    "block activation when required evidence is missing or stale",
+    "flag uninsured balances and products",
+    "route incidents and claims to authorized carriers/custodians",
+    "retain audit evidence",
+    "reconcile insured balances against provider records"
+  ]
+}

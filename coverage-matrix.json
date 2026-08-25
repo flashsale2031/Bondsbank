@@ -1,0 +1,23 @@
+{
+  "accounts": {
+    "checking": {"insuranceStatus":"requires-insured-bank-evidence","coverageSource":"FDIC or applicable insurer","limitRule":"institution/ownership/category dependent"},
+    "savings": {"insuranceStatus":"requires-insured-bank-evidence","coverageSource":"FDIC or applicable insurer","limitRule":"institution/ownership/category dependent"},
+    "business": {"insuranceStatus":"requires-insured-bank-evidence","coverageSource":"FDIC or applicable insurer","limitRule":"entity/ownership category dependent"},
+    "businessSavings": {"insuranceStatus":"requires-insured-bank-evidence","coverageSource":"FDIC or applicable insurer","limitRule":"entity/ownership category dependent"},
+    "ira": {"insuranceStatus":"requires-insured-retirement-account-evidence","coverageSource":"FDIC or applicable insurer","limitRule":"retirement-account rules apply"},
+    "credit": {"insuranceStatus":"not-deposit-insurance-by-default","coverageSource":"issuer/contractual coverage","limitRule":"program specific"},
+    "businessCredit": {"insuranceStatus":"not-deposit-insurance-by-default","coverageSource":"issuer/contractual coverage","limitRule":"program specific"},
+    "ledger": {"insuranceStatus":"not-statutory-deposit-insurance","coverageSource":"operational controls/contractual insurance","limitRule":"policy specific"},
+    "vault": {"insuranceStatus":"requires-custody-and-reserve-evidence","coverageSource":"custodian/insurer; statutory status must be verified","limitRule":"asset and custodian specific"}
+  },
+  "paymentsAndCards": {
+    "virtualDebitCard":"issuer/program protection must be verified",
+    "virtualCreditCard":"issuer/program protection must be verified",
+    "pos":"merchant operational/payment insurance must be verified",
+    "wallet":"custody/payment coverage must be verified"
+  },
+  "tokens": {
+    "bondsCoin":"no FDIC/SIPC claim; reserve/custody/insurance evidence required",
+    "bondsBankCreditToken":"no FDIC/SIPC claim; reserve/custody/insurance evidence required"
+  }
+}

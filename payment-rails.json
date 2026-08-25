@@ -1,0 +1,6 @@
+{
+  "bankTransfer": ["ACH", "WIRE"],
+  "realTime": ["RTP", "FEDNOW"],
+  "cardAndPush": ["VISA_DIRECT_ELIGIBLE"],
+  "rule": "No rail is live until a sponsor/provider is configured, credentials are provisioned in a secret manager, and the account/program is approved for that rail."
+}

@@ -1,0 +1,14 @@
+{
+  "principal": {"email":"bondsbank@gmail.com","status":"configured"},
+  "accounts": [
+    {"id":"BB-CHECKING-001","type":"checking","status":"provisioned"},
+    {"id":"BB-SAVINGS-001","type":"savings","status":"provisioned"},
+    {"id":"BB-BUSINESS-001","type":"business","status":"provisioned"},
+    {"id":"BB-BUSINESS-SAVINGS-001","type":"business_savings","status":"provisioned"},
+    {"id":"BB-CREDIT-001","type":"credit","status":"locked_pending_identity_security"},
+    {"id":"BB-BUSINESS-CREDIT-001","type":"business_credit","status":"locked_pending_identity_security"},
+    {"id":"BB-BUSINESS-ACCOUNT-001","type":"business_account","status":"provisioned"},
+    {"id":"BB-LEDGER-001","type":"ledger","status":"provisioned"},
+    {"id":"BB-VAULT-001","type":"vault","status":"provisioned"}
+  ]
+}

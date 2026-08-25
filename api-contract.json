@@ -1,0 +1,19 @@
+{
+  "event": "SavingsAccountOpened",
+  "workflow": [
+    "validate_savings_opened",
+    "lock_source_and_destination_for_transfer",
+    "reconcile_source_balance",
+    "post_atomic_savings_to_checking_transfer",
+    "reconcile_destination",
+    "create_unified_account_relationship",
+    "emit_audit_event",
+    "render_checking_savings_dashboard"
+  ],
+  "ui_response": {
+    "checkingBalance": "number",
+    "savingsBalance": "number",
+    "combinedAvailableBalance": "number",
+    "currency": "string"
+  }
+}

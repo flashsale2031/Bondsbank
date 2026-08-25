@@ -1,0 +1,62 @@
+{
+  "version": "2.3",
+  "ownerEmail": "bondsbank@gmail.com",
+  "mode": "production_fail_closed",
+  "accountProducts": [
+    "checking",
+    "savings",
+    "business",
+    "business_savings",
+    "credit",
+    "business_credit",
+    "ira",
+    "business_account",
+    "ledger",
+    "vault"
+  ],
+  "issuanceGates": [
+    "authorized_issuer",
+    "kyc_aml_sanctions",
+    "risk_approval",
+    "insurance_coverage",
+    "reserve_attestation_if_applicable",
+    "accounting_reconciliation",
+    "idempotency",
+    "audit_event"
+  ],
+  "tokenProducts": {
+    "BONDS": {
+      "sandboxMintUnits": "100000000000",
+      "productionMint": "blocked_until_reserve_attested"
+    },
+    "BBCT": {
+      "sandboxMintUnits": "100000000000",
+      "productionMint": "blocked_until_reserve_and_credit_policy_attested"
+    }
+  },
+  "cards": {
+    "virtualDebit": [
+      "checking",
+      "savings",
+      "business",
+      "business_savings",
+      "ira",
+      "ledger",
+      "vault"
+    ],
+    "virtualCredit": [
+      "credit",
+      "business_credit"
+    ],
+    "replacement": "close_current_then_regenerate",
+    "rawPanStorage": "prohibited"
+  },
+  "rails": [
+    "ACH",
+    "WIRE",
+    "RTP",
+    "FEDNOW",
+    "VISA_DIRECT_ELIGIBLE"
+  ],
+  "externalSettlement": "requires_authorized_provider"
+}

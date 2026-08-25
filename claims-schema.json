@@ -1,0 +1,12 @@
+{
+  "claimId":"string",
+  "policyId":"string",
+  "productId":"string",
+  "accountId":"string",
+  "incidentType":"loss|fraud|unauthorized_transaction|custody_loss|operational_error|institution_failure",
+  "amountUsd":0,
+  "evidenceRefs":[],
+  "status":"draft|submitted|carrier_review|approved|denied|paid|closed",
+  "createdAt":"ISO-8601",
+  "auditRefs":[]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Bonds Bank Cash Deposit",
+  "type":"object",
+  "required":["depositId","transactionType","receivingAccountId","amount","currency","receivedAt","depositor","receivedBy","idempotencyKey"],
+  "properties":{
+    "depositId":{"type":"string"},"transactionType":{"const":"CASH_DEPOSIT"},"receivingAccountId":{"type":"string"},
+    "amount":{"type":"string","pattern":"^[0-9]+(\\.[0-9]{1,2})?$"},"currency":{"const":"USD"},"receivedAt":{"type":"string","format":"date-time"},
+    "idempotencyKey":{"type":"string"},
+    "depositor":{"type":"object","required":["name","identificationVerified"],"properties":{"name":{"type":"string"},"customerId":{"type":["string","null"]},"identificationVerified":{"type":"boolean"}}},
+    "receivedBy":{"type":"object","required":["userId"],"properties":{"userId":{"type":"string"},"role":{"type":["string","null"]}}},
+    "sourceOfFunds":{"type":"string"},"purpose":{"type":["string","null"]},"location":{"type":["object","null"]},"denominations":{"type":"array"},"externalReference":{"type":["string","null"]}
+  }
+}

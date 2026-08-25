@@ -1,0 +1,9 @@
+{
+  "vaultAccountId":"BB-VAULT-001",
+  "ownerEmail":"bondsbank@gmail.com",
+  "status":"SANDBOX_PENDING_RESERVE_ATTESTATION",
+  "allocations":[
+    {"asset":"BONDS","units":"100000000000","encryptedPerUnit":true},
+    {"asset":"BBCT","units":"100000000000","encryptedPerUnit":true}
+  ]
+}

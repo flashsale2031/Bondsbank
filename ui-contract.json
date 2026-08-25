@@ -1,0 +1,31 @@
+{
+  "card_detail": {
+    "actions": [
+      {
+        "id": "add_to_apple_pay",
+        "label": "Add to Apple Pay",
+        "visible_on": [
+          "ios"
+        ]
+      },
+      {
+        "id": "add_to_google_wallet",
+        "label": "Add to Google Wallet",
+        "visible_on": [
+          "android"
+        ]
+      },
+      {
+        "id": "manage_wallets",
+        "label": "Manage Wallets"
+      }
+    ]
+  },
+  "status": {
+    "wallet": "apple_pay|google_wallet|other",
+    "state": "not_added|provisioning|active|suspended|removed|ineligible",
+    "network": "string",
+    "last4": "string",
+    "token_reference": "opaque_server_reference"
+  }
+}
