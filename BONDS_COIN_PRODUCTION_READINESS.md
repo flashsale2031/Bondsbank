@@ -29,6 +29,8 @@ The Bonds IRA workflow should make the custodian—not the web frontend—the sy
 
 The following table is a launch requirement, not an assertion that the current site has implemented these controls.
 
+An accompanying no-value public-testnet reference node now lives in [`bondscoin-testnet/`](./bondscoin-testnet/). It provides a narrow, controlled baseline for deterministic genesis, a small proof-of-work consensus reference, authenticated bootstrap discovery, crash-safe snapshots, bounded wire parsing, and local multi-node tests. It is intentionally excluded from any customer, reserve, issuer, custody, or trading operation.
+
 | Layer | Required production control | Test and evidence |
 |---|---|---|
 | Genesis | Versioned, canonical genesis manifest with chain ID, protocol version, deterministic serialization, initial state root, and signed reproducible artifact | Independent rebuild produces the published genesis hash; release artifacts verified in CI |

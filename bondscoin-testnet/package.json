@@ -1,0 +1,12 @@
+{
+  "name": "bondscoin-public-testnet",
+  "version": "0.1.0-testnet",
+  "private": true,
+  "type": "module",
+  "description": "No-value Bonds Coin public testnet reference node. Not for production, custody, issuance, or trading.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo:three-nodes": "node scripts/three-node-demo.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
