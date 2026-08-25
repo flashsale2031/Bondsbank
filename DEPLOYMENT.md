@@ -1,9 +1,13 @@
-# Bonds Bank Web Package
+# Bonds Bank Deployment Boundary
 
-This package contains two responsive web frontends:
-- `customer-web/`: customer banking interface covering Checking, Savings, Business Checking, Business Savings, Credit, Business Credit, IRA, Wallet, Security Center, and Business POS.
-- `admin-web/`: administrator interface for user/account management, verification review, and audit views.
+## Current deployment
 
-These are deployment-ready frontend shells. They do not themselves execute banking transactions. Connect them to the authenticated Bonds Bank backend/API before production use. Never place bank credentials, OAuth client secrets, SSNs, ID documents, CVVs, signing keys, or provider private keys in frontend code.
+This repository is a **static Bonds Bank testnet-first product interface**. It may be hosted as a static site over HTTPS and contains no backend API, customer authentication, asset custody, payment processing, IRA administration, private-key handling, token issuance, order routing, or P2P node service.
 
-Recommended deployment: serve each directory as a static site over HTTPS and configure the backend API plus OAuth/OIDC redirect URIs separately.
+The interface presents a Bonds IRA, Bonds Coin, BONDS Vault, explorer, and trading-desk experience as product and technical architecture prototypes. Any displayed USD reference is illustrative only. There are no BONDS tokens, reserves, redemption rights, or customer funds in the site.
+
+## Future production split
+
+Production must be deployed as separate, independently reviewed services. The public frontend should communicate with authenticated API gateways only. Custody, issuer controls, reserve reconciliation, KYC/AML and sanctions screening, IRA custodian integrations, market surveillance, blockchain nodes, indexers, and signing services must remain outside the static frontend and must not expose secrets or private keys to the browser.
+
+For the complete launch-gate specification, see [BONDS_COIN_PRODUCTION_READINESS.md](./BONDS_COIN_PRODUCTION_READINESS.md).
