@@ -1,6 +1,6 @@
 # Bonds Coin Public Testnet Threat Model
 
-> **Version:** 0.1 — testnet reference baseline
+> **Version:** 0.2 — testnet reference baseline with secure-transport controls
 > **Scope:** `bondscoin-testnet/` only
 > **Security status:** Design and test artifact; **not** an independent audit or a production authorization.
 
@@ -13,8 +13,8 @@ The reference node has a deliberately narrow role. It maintains a deterministic 
 | In scope | Explicitly out of scope |
 |---|---|
 | Genesis manifest, proof-of-work reference, difficulty adjustment, chain-work selection, bounded reorganization policy | Any live BONDS issuance, USD redemption, collateral or reserve operations |
-| Peer identity, signed bootstrap records, TCP framing, parser limits, per-socket rate gate | Customer custody, private-key recovery, wallet UX, deposits, withdrawals, payment processing |
-| Snapshot durability, recovery behavior, no-value tests, local three-node demonstration | Public persistent node operation, encrypted transport, public discovery, exchange or DEX execution |
+| Peer identity, signed bootstrap records, encrypted authenticated session, TCP framing, parser limits, per-socket rate gate, and in-process peer penalties | Customer custody, private-key recovery, wallet UX, deposits, withdrawals, payment processing |
+| Snapshot durability, recovery behavior, no-value tests, local three-node demonstration | Public persistent node operation, durable peer reputation, public discovery, exchange or DEX execution |
 | Repository integrity, release controls, test evidence, audit handoff | Any assurance that an independent audit has occurred or that this code is ready for value-bearing use |
 
 ## 2. Security objectives and assumptions
@@ -25,7 +25,7 @@ The testnet assumes that the bootstrap authority key is distributed out of band 
 
 ## 3. Architecture and trust boundaries
 
-The reference implementation uses a static genesis manifest and a chain object in process memory. The network boundary is a TCP socket that accepts newline-delimited JSON control messages. A peer must present an Ed25519-signed `HELLO` message whose public key matches a valid, authority-signed bootstrap record. The state boundary is a checksummed snapshot written through a temporary path, `fsync`, and atomic rename.
+The reference implementation uses a static genesis manifest and a chain object in process memory. The network boundary is a TCP socket that accepts newline-delimited JSON envelopes. A peer must present an Ed25519-signed `SECURE_HELLO` message whose public key matches a valid, authority-signed bootstrap record. Each accepted handshake presents a fresh X25519 ephemeral key and nonce; the node rejects a replayed nonce for its in-process lifetime. Application messages are then carried only in AES-256-GCM encrypted, sequence-bound `SECURE_DATA` envelopes. The state boundary is a checksummed snapshot written through a temporary path, `fsync`, and atomic rename.[3]
 
 > Bitcoin’s P2P documentation describes TCP communication and message containers with explicit type and payload-length framing. Bonds Coin does not copy that protocol; it uses the reference to justify treating message framing, byte bounds, and network identity as first-class trust boundaries.[2]
 
@@ -33,7 +33,7 @@ The reference implementation uses a static genesis manifest and a chain object i
 |---|---|---|---|
 | Release → node | Genesis constants, source code, authority public key | Reproducible release, signed artifact, independent hash verification | **Partial** — deterministic manifest exists; signed release process is not implemented |
 | Bootstrap authority → node | Peer endpoint, node ID, public key, expiry, signature | Authority-key pinning, signature verification, expiry, host/port validation, revocation | **Partial** — signature, identity binding, and expiry exist; revocation and strict endpoint validation do not |
-| Peer socket → protocol parser | `HELLO`, `BLOCK`, `PING`, `STATUS` messages | Size limit, strict schema, authentication, freshness, rate limits, ban/score policy | **Partial** — bounds, message type allowlist, handshake, and rate gate exist; schema, replay cache, encryption, and scoring do not |
+| Peer socket → protocol parser | `SECURE_HELLO` and encrypted sequence-bound `SECURE_DATA` envelopes | Size limit, strict schema, authentication, freshness, replay cache, rate limits, and ban/score policy | **Partial** — encrypted handshake, nonce cache, sequencing, bounds, and temporary in-process penalties exist; schema validation, durable scoring, and global quotas do not |
 | Protocol → chain state | Empty blocks and parent references | Chain ID, version, timestamp, proof, difficulty, chain-work, reorg limit | **Partial** — all listed reference checks exist; formal specification and adversarial validation do not |
 | Chain state → disk | Snapshot and tip state | Integrity checksum, atomic write, directory sync, recovery test, backup lifecycle | **Partial** — checksum and crash-recovery test exist; snapshots, backups, encryption, and rollback protection do not |
 | Operator → node | Test configuration and logs | Least privilege, secrets handling, monitoring, change approval, incident response | **Missing** — no operations platform is deployed |
@@ -63,13 +63,13 @@ Residual ratings are for the **current testnet reference**, not a production sys
 | TM-04 | Attacker presents a heavier competing fork | Reorganization or chain instability | Cumulative work selection and `MAX_REORG_DEPTH` policy | `chain chooses cumulative work` test | **High.** Reference PoW is intentionally weak; no public value-bearing use until consensus review and economic threat analysis |
 | TM-05 | Deep reorganization with expensive replay | State rollback or availability loss | Bounded tip-switch policy and reorg events | Core event recording | **Medium.** Add explicit fork-pruning, wallet finality policy, long-reorg chaos tests, and alerting |
 | TM-06 | Invalid or malformed block body | Consensus bug or resource abuse | Empty transactions/allocations only, hash and proof checks | Core validator; fuzz parser test | **Medium.** Add structured block fuzzing, mutation corpus, and independent parser audit |
-| TM-07 | Spoofed node identity | Unauthorized peer access | Ed25519-signed `HELLO`, node-ID/public-key binding | Authenticated two-node relay test | **Medium.** Add nonce replay cache, key rotation, certificate pinning, and revocation policy |
-| TM-08 | Replay of a valid `HELLO` within freshness window | Unauthorized or duplicated session | Timestamp bound and random nonce generation | Manual code review only | **High.** Current implementation does **not** retain seen nonces; add cache, challenge-response, and replay tests before public operation |
+| TM-07 | Spoofed node identity | Unauthorized peer access | Ed25519-signed secure handshake, node-ID/public-key binding, signed bootstrap records, and X25519 ephemeral keys | Authenticated encrypted two-node relay test | **Medium.** Add key rotation, revocation policy, and independent protocol review |
+| TM-08 | Replay of a valid authenticated handshake | Unauthorized or duplicated session | Process-local nonce replay cache, signed ephemeral key material, strict secure-message sequence | Replay and secure-sequence tests | **Medium.** Replay cache is process-local; add persistent/revocation-aware replay policy and external review before public operation |
 | TM-09 | Compromised bootstrap authority key | Eclipse, Sybil admission, or partition | Authority public-key pinning and signed records | Peer-record verification path | **High.** Require offline root, threshold signing, rotation/revocation, emergency distribution, and external audit |
-| TM-10 | Eclipse/Sybil attack via many valid or compromised peers | Censored view of network | Controlled signed bootstrap list | Local three-node demo | **High.** Add diverse peer selection, autonomous discovery constraints, scoring, quota, and adversarial network simulation |
+| TM-10 | Eclipse/Sybil attack via many valid or compromised peers | Censored view of network | Controlled signed bootstrap list and temporary in-process peer penalties | Local three-node demo and peer-score test | **High.** Add diverse peer selection, durable reputation, quotas, authority rotation, and adversarial network simulation |
 | TM-11 | Oversized or malformed wire input | Memory, parser, or CPU denial of service | 64 KiB bound, message type allowlist, exception close | 1,000-sample malformed-input test | **Medium.** Add schema validator, line-fragment fuzzing, decompression prohibition, load test, and metrics |
-| TM-12 | Connection or message flood | Socket exhaustion and availability loss | Handshake timeout and 60-message/second socket gate | Local code path | **Medium–high.** Add global quotas, IP/subnet limits, peer scoring/bans, OS tuning, and DDoS service plan |
-| TM-13 | Unencrypted TCP manipulation or metadata exposure | Traffic observation, tampering, peer privacy loss | Signed handshake only | No current test | **High.** Add mutually authenticated encrypted transport, certificate rotation, and privacy review |
+| TM-12 | Connection or message flood | Socket exhaustion and availability loss | Handshake timeout, 60-message/second socket gate, in-process peer penalty and temporary ban | Peer-penalty test | **Medium.** Add global quotas, IP/subnet limits, durable scoring, OS tuning, and DDoS service plan |
+| TM-13 | Unencrypted TCP manipulation or metadata exposure | Traffic observation, tampering, peer privacy loss | Signed ephemeral X25519 handshake and AES-256-GCM encrypted sequence-bound payloads | Secure-channel confidentiality and replay-sequence test | **Medium.** Add transport versioning, key rotation, independent cryptographic review, and privacy review |
 | TM-14 | Disk corruption or interrupted write | Corrupt local chain state | Checksum, temporary file, `fsync`, rename, alternate-slot recovery | `checksummed state recovers` test | **Medium.** Add power-loss faults across all write boundaries, snapshots, encrypted backups, and rollback detection |
 | TM-15 | State exhaustion from blocks or forks | Disk/memory depletion | No-value blocks only; no mempool | Reference constraints | **High.** Add pruning, quotas, bounded orphan pool, compaction, telemetry, and retention policy |
 | TM-16 | Private key leakage from local node | Peer impersonation | No persistent key store in reference demo | No current test | **High.** Require hardware or multi-party key controls, encrypted secrets, rotation/revocation, and compromise playbook |
@@ -87,7 +87,9 @@ Current tests demonstrate only narrow technical properties. A passing test does 
 | Deterministic genesis test | TM-01, TM-02 | Verifies reproducible hash and empty allocations | Independent rebuild in clean environment and signed release manifest |
 | Cumulative-work/reorganization test | TM-03, TM-04, TM-05 | Verifies a short competing branch can become tip and emits a reorg event | Property tests, differential implementation, long-chain and boundary reorg scenarios |
 | Crash-recovery test | TM-14 | Recovers from a corrupt primary using checksum-valid temporary data | Fault injection before/after rename and directory sync; backup/restore drill |
-| Authenticated peer relay | TM-07, TM-09, TM-10 | Controlled peers exchange one empty block | Invalid signature, expired record, wrong key, replay, eclipse, and partition scenarios |
+| Authenticated encrypted peer relay | TM-07, TM-09, TM-10, TM-13 | Controlled peers exchange one empty block only after secure session establishment | Invalid signature, expired record, wrong key, replay, eclipse, and partition scenarios |
+| Replay and secure-sequence tests | TM-08, TM-13 | Rejects a repeated handshake nonce and repeated encrypted envelope sequence | Persistent replay cache, adversarial clock handling, and transport-interoperability test vectors |
+| Peer-score test | TM-12 | Repeated severe protocol penalties result in a temporary local ban | Durable distributed reputation, global resource and subnet quotas |
 | Parser fuzz test | TM-06, TM-11 | Rejects 1,000 random malformed samples and over-limit line | Coverage-guided fuzzing, fragmentation corpus, sanitizer runs, and resource profiling |
 | Three-node demo | TM-10, TM-12, TM-19 | Three local nodes share a tip and terminate cleanly | Persistent isolated testnet, monitoring, network chaos, and operations exercise |
 
@@ -114,3 +116,5 @@ No live BONDS issuance, reserve representation, wallet balance, custody function
 [1] [NIST SP 800-154, *Guide to Data-Centric System Threat Modeling*](https://csrc.nist.gov/pubs/sp/800/154/ipd)
 
 [2] [Bitcoin Developer Documentation, *P2P Network*](https://developer.bitcoin.org/reference/p2p_networking.html)
+
+[3] [Node.js Documentation, *Crypto*](https://nodejs.org/api/crypto.html)

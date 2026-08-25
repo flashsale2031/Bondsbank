@@ -9,9 +9,9 @@
 | Deterministic genesis | Fixed chain ID, canonical encoding, no allocations, reproducible hash | Signed release process and independent verification |
 | Consensus | Small proof-of-work reference, bounded adjustment, cumulative-work fork selection | Formal specification, adversarial review, parameter governance |
 | Reorganizations | Fork tree, bounded reorg policy, reorg events | Long-horizon simulations and wallet finality policy |
-| P2P | Signed node identities, signed bootstrap records, authenticated handshake, rate gate | Encrypted transport, public operations, Sybil/eclipsing review |
+| P2P | Signed node identities, signed bootstrap records, authenticated X25519 session setup, AES-GCM encrypted payloads, strict message sequences | Transport-version governance, public operations, Sybil/eclipsing review |
 | State | Checksummed snapshots with fsync/rename commits and temporary-file recovery | Database hardening, backups, operational runbooks |
-| DoS controls | Strict message size, parser rejection, per-socket rate limit, handshake timeout | Traffic scrubbing, telemetry, dynamic peer scoring, chaos tests |
+| DoS controls | Strict message size, parser rejection, per-socket rate limit, handshake timeout, in-process peer scoring and temporary bans | Traffic scrubbing, telemetry, durable scoring, global quotas, chaos tests |
 | Multi-node | Three-node local demonstration and two-node propagation test | Persistently operated isolated testnet and monitoring |
 
 ## Run
