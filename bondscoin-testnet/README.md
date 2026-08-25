@@ -27,3 +27,5 @@ Before any value-bearing release, complete independent audits for consensus/node
 For the current system inventory, threat register, residual-risk record, evidence matrix, and audit handoff, read [THREAT_MODEL.md](./THREAT_MODEL.md). Security researchers should follow [SECURITY.md](./SECURITY.md).
 
 The repository is **not eligible for mainnet activation**. The explicit no-activation boundary and the external evidence required for a future launch are documented in [MAINNET_READINESS.md](./MAINNET_READINESS.md).
+
+Provider-neutral diligence, request-for-information, and evaluation materials are in [PARTNER_ENGAGEMENT_PACKAGE.md](./PARTNER_ENGAGEMENT_PACKAGE.md). They must not be used to retain a provider without separate approval.

@@ -90,6 +90,8 @@ The financial-control package must separately include issuer authorization, rese
 
 No user-facing interface may be changed to imply that BONDS is live, USD-pegged, redeemable, collateralized, IRS-approved, insured, or available for investment unless the corresponding legal, operational, and audit evidence is complete and the launch governance decision is recorded.
 
+The provider-neutral diligence process and request-for-information materials are maintained in [`PARTNER_ENGAGEMENT_PACKAGE.md`](./PARTNER_ENGAGEMENT_PACKAGE.md). That package does not select, retain, pay, or authorize any provider.
+
 ## References
 
 [1] [OCC, *GENIUS Act Regulations: Notice of Proposed Rulemaking* (February 25, 2026)](https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-3.html)
