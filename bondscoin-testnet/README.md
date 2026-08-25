@@ -31,3 +31,7 @@ The repository is **not eligible for mainnet activation**. The explicit no-activ
 Provider-neutral diligence, request-for-information, and evaluation materials are in [PARTNER_ENGAGEMENT_PACKAGE.md](./PARTNER_ENGAGEMENT_PACKAGE.md). They must not be used to retain a provider without separate approval.
 
 The public-source shortlist for review is in [PROSPECTIVE_PROVIDER_SHORTLIST.md](./PROSPECTIVE_PROVIDER_SHORTLIST.md). It does not authorize contact with any organization.
+
+The controlled reserve, redemption, custody, compliance, assurance, and production-operations readiness framework is in [PRODUCTION_OPERATIONS_READINESS.md](./PRODUCTION_OPERATIONS_READINESS.md). It does not authorize any live financial operation.
+
+The associated evidence-register template and tabletop-only procedures are in [PRODUCTION_OPERATIONS_RUNBOOKS.md](./PRODUCTION_OPERATIONS_RUNBOOKS.md).

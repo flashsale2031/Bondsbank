@@ -92,6 +92,10 @@ No user-facing interface may be changed to imply that BONDS is live, USD-pegged,
 
 The provider-neutral diligence process and request-for-information materials are maintained in [`PARTNER_ENGAGEMENT_PACKAGE.md`](./PARTNER_ENGAGEMENT_PACKAGE.md). That package does not select, retain, pay, or authorize any provider.
 
+The detailed reserve, redemption, custody, compliance, assurance, and production-operations control framework is maintained in [`PRODUCTION_OPERATIONS_READINESS.md`](./PRODUCTION_OPERATIONS_READINESS.md). It is a readiness design only and does not authorize value-bearing activity.
+
+Controlled tabletop runbooks and evidence-register fields are maintained in [`PRODUCTION_OPERATIONS_RUNBOOKS.md`](./PRODUCTION_OPERATIONS_RUNBOOKS.md).
+
 ## References
 
 [1] [OCC, *GENIUS Act Regulations: Notice of Proposed Rulemaking* (February 25, 2026)](https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-3.html)
