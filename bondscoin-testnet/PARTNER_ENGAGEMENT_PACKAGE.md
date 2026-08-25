@@ -86,6 +86,8 @@ The following actions are outside this preparation package and require a specifi
 4. Authorizing an audit scope, publishing a security finding, or accepting a remediation risk.
 5. Activating any value-bearing network, token issuance, custody, reserve claim, redemption, trading, or customer-facing financial feature.
 
+The public-source screening list and recipient-level approval matrix are maintained in [`PROSPECTIVE_PROVIDER_SHORTLIST.md`](./PROSPECTIVE_PROVIDER_SHORTLIST.md). Inclusion is not a recommendation or outreach authorization.
+
 ## References
 
 [1] [OCC, *GENIUS Act Regulations: Notice of Proposed Rulemaking* (February 25, 2026)](https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-3.html)

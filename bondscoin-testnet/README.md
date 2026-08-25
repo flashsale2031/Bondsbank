@@ -29,3 +29,5 @@ For the current system inventory, threat register, residual-risk record, evidenc
 The repository is **not eligible for mainnet activation**. The explicit no-activation boundary and the external evidence required for a future launch are documented in [MAINNET_READINESS.md](./MAINNET_READINESS.md).
 
 Provider-neutral diligence, request-for-information, and evaluation materials are in [PARTNER_ENGAGEMENT_PACKAGE.md](./PARTNER_ENGAGEMENT_PACKAGE.md). They must not be used to retain a provider without separate approval.
+
+The public-source shortlist for review is in [PROSPECTIVE_PROVIDER_SHORTLIST.md](./PROSPECTIVE_PROVIDER_SHORTLIST.md). It does not authorize contact with any organization.
