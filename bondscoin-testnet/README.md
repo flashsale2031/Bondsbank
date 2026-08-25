@@ -23,3 +23,5 @@ npm run demo:three-nodes
 ```
 
 Before any value-bearing release, complete independent audits for consensus/node behavior, P2P abuse resistance, storage integrity, wallet/key custody, explorer privacy, web/API surfaces, cloud deployment, and incident response. Refer to [`../BONDS_COIN_PRODUCTION_READINESS.md`](../BONDS_COIN_PRODUCTION_READINESS.md) for the full operating gates.
+
+For the current system inventory, threat register, residual-risk record, evidence matrix, and audit handoff, read [THREAT_MODEL.md](./THREAT_MODEL.md). Security researchers should follow [SECURITY.md](./SECURITY.md).
