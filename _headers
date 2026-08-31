@@ -1,14 +1,6 @@
 /*
-  Static-host security baseline.
-  If a host already supplies stronger headers, keep the stronger policy.
-*/
-/*
-  Content-Security-Policy is intentionally conservative. Review external assets before
-  adding additional origins. No API endpoints are permitted by this launch profile.
-*/
-/*
-  Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-*/
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
