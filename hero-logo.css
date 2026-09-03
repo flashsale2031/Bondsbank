@@ -16,3 +16,9 @@
 
 .member-icon{width:32px;height:36px;display:grid;place-items:center;color:var(--gold);flex:none}
 .member-icon svg{width:24px;height:24px;display:block;fill:currentColor}
+
+.topbar .brand-lockup>div{width:118px;flex:0 0 118px}
+.topbar .brand-lockup>div>strong{display:block;width:100%}
+.topbar .brand-lockup>div>small{display:flex;justify-content:space-between;align-items:center;width:100%;font-size:6px;letter-spacing:0;white-space:nowrap}
+.topbar .brand-lockup>div>small span{display:block}
+@media(max-width:760px){.topbar .brand-lockup>div{width:82px;flex-basis:82px}.topbar .brand-lockup>div>small{font-size:4px}}
