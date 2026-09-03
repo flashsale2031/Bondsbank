@@ -1,0 +1,38 @@
+:root{--ink:#102a28;--forest:#0e2e2b;--green:#174940;--deep:#0e2e2b;--paper:#f4f0e5;--cream:#fffdf7;--gold:#c9a45c;--gold-light:#efe5cd;--line:#ddd8ca;--muted:#66736f;--shadow:0 14px 34px rgba(14,46,43,.07)}
+html,body{background:#f4f0e5;color:#102a28}
+body{font-family:"DM Sans",Arial,sans-serif}
+.app-shell{background:#f4f0e5}
+.sidebar{background:#0e2e2b;color:#f4f0e5;width:216px;flex-basis:216px;padding:28px 14px 22px}
+.side-brand{gap:9px;padding:0 5px}
+.side-brand img{width:38px;height:50px;object-fit:contain;transform:none}
+.side-brand span{color:#f8f3e5;font-size:23px;letter-spacing:-.055em}
+.side-label{margin:39px 10px 13px;color:#9aafa9}
+.nav-item{color:#b4c2be;border-radius:8px;padding:10px 11px;font-size:12px}
+.nav-item:hover{background:rgba(255,253,247,.06);color:#fffdf7}
+.nav-item.active{background:#f8f1df;color:#102a28}
+.side-bottom{border-top:1px solid rgba(255,253,247,.09)}
+.side-status{display:none}
+.topbar{height:68px;background:#f4f0e5;border-bottom:1px solid rgba(14,46,43,.08);padding:0 42px}
+.mode-pill{background:#e9eee8;border-color:#d7ddd5;color:#53635d}
+.avatar{background:#0e2e2b;color:#fffdf7}
+.content{background:#f4f0e5}
+.kicker{color:#557a70}
+.subhead,.page-heading>p:last-child,.freedom-heading>div>p:last-child{color:#687570}
+.wealth-hero{background:linear-gradient(135deg,#174940 0%,#1d5b4f 58%,#2a6657 100%);box-shadow:0 14px 34px rgba(14,46,43,.08)}
+.wealth-side{background:rgba(8,39,35,.28)}
+.wealth-main{background:transparent}
+.quick-card,.allocation-card,.accounts-card,.activity-preview,.freedom-score,.freedom-insight,.asset-large.light,.asset-wide,.transfer-card,.profile-card,.security-card{background:#fffdf7;border-color:#ddd8ca}
+.quick-card:hover{background:#fbf8ef}
+.freedom-banner,.target-card{background:#e8e2d2;border-color:#d7cfbd}
+.balance-strip{background:#173f39}
+.asset-large{background:linear-gradient(135deg,#174940,#2a6657)}
+.allocation-bars{background:#eef1eb}
+.mobile-nav{background:#0e2e2b;border-top:1px solid rgba(255,253,247,.1)}
+.mobile-nav .nav-item{color:#b4c2be}
+.mobile-nav .nav-item.active{background:#f8f1df;color:#102a28}
+.btn{background:#0e2e2b;border-color:#0e2e2b}
+.btn.secondary{background:transparent;color:#0e2e2b}
+.round-arrow{background:#0e2e2b}
+.demo-note{border-left-color:#c9a45c}
+@media(max-width:900px){.sidebar{width:216px;flex-basis:216px}.topbar{padding:0 24px}.content{padding-left:28px;padding-right:28px}}
+@media(max-width:680px){.sidebar{display:none}.mobile-brand{display:flex;align-items:center;gap:8px}.mobile-brand img{width:30px;height:38px;object-fit:contain}.mobile-brand strong{font:700 20px Georgia,serif;color:#102a28}.topbar{justify-content:space-between;padding:0 18px}.content{padding:28px 18px 86px}.wealth-hero{grid-template-columns:1fr}.wealth-side{grid-template-columns:repeat(3,1fr)}.wealth-main{height:320px}.wealth-number{font-size:58px}.quick-actions{grid-template-columns:1fr}.asset-overview{grid-template-columns:1fr}.freedom-banner{grid-template-columns:1fr}.activity-row{gap:8px}.mobile-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;justify-content:space-around;padding:7px 5px calc(7px + env(safe-area-inset-bottom));background:#0e2e2b}.mobile-nav .nav-item{display:flex;flex-direction:column;gap:3px;padding:7px 10px;font-size:9px;border-radius:7px}.mobile-nav .nav-item svg{width:17px;height:17px}}
