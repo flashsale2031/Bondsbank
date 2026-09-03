@@ -6,10 +6,10 @@
 .topbar .brand-lockup{display:flex;align-items:center;gap:12px}
 .topbar .brand-lions{position:relative;display:block;flex:0 0 46px;width:46px;height:46px;overflow:hidden}
 .topbar .brand-lion{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
-.topbar .brand-lion-crowded{opacity:1;animation:brandLionCrowded 40s ease-in-out infinite}
-.topbar .brand-lion-platinum{opacity:0;animation:brandLionPlatinum 40s ease-in-out infinite}
-@keyframes brandLionCrowded{0%,25%{opacity:1}50%,75%,100%{opacity:0}}
-@keyframes brandLionPlatinum{0%,25%{opacity:0}50%,75%,100%{opacity:1}}
-@media(prefers-reduced-motion:reduce){.topbar .brand-lion-crowded{animation:none;opacity:1}.topbar .brand-lion-platinum{animation:none;opacity:0}}
+.topbar .brand-lion-platinum{opacity:1;animation:brandLionPlatinum 20s ease-in-out infinite}
+.topbar .brand-lion-crowned{opacity:0;animation:brandLionCrowned 20s ease-in-out infinite}
+@keyframes brandLionPlatinum{0%,47.5%,100%{opacity:1}50%,97.5%{opacity:0}}
+@keyframes brandLionCrowned{0%,47.5%,100%{opacity:0}50%,97.5%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.topbar .brand-lion-platinum{animation:none;opacity:1}.topbar .brand-lion-crowned{animation:none;opacity:0}}
 @media(max-width:760px){.hero-visual:after{right:-6%;bottom:-2%;width:55%;height:70%;opacity:.95}.hero-visual>.hero-copy{width:100%;padding-right:38%;background:linear-gradient(90deg,rgba(3,16,28,.97) 0%,rgba(3,16,28,.9) 58%,rgba(3,16,28,.35) 100%)}}
 @media(max-width:520px){.hero-visual:after{right:-9%;width:58%;height:62%;opacity:.88}.hero-visual>.hero-copy{padding-right:34%}.topbar .brand-lions{flex-basis:40px;width:40px;height:40px}}
