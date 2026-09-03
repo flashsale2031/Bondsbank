@@ -1,7 +1,7 @@
 .hero-visual{position:relative;overflow:hidden}
 .hero-visual>.hero-art{display:none!important}
 .hero-visual>.hero-copy:before{display:none!important}
-.hero-visual:after{content:"";position:absolute;z-index:4;right:3%;bottom:-4%;width:min(43%,520px);height:92%;background:url('bonds-hero-lion-platinum.webp?v=hero-logo-4') center bottom / contain no-repeat;pointer-events:none;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45))}
+.hero-visual:after{display:none!important}
 .hero-visual>.hero-copy{z-index:5}
 .topbar .brand-lockup{display:flex;align-items:center;gap:12px}
 .topbar .brand-lions{position:relative;display:block;flex:0 0 46px;width:46px;height:46px;overflow:hidden}
