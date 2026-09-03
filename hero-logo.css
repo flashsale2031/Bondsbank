@@ -22,3 +22,13 @@
 .topbar .brand-lockup>div>small{display:flex;justify-content:space-between;align-items:center;width:100%;font-size:6px;letter-spacing:0;white-space:nowrap}
 .topbar .brand-lockup>div>small span{display:block}
 @media(max-width:760px){.topbar .brand-lockup>div{width:82px;flex-basis:82px}.topbar .brand-lockup>div>small{font-size:4px}}
+
+/* Hero artwork alternates every 10 seconds: city first, crown-and-treasure second. */
+.hero-visual{background:#050b12 url("bonds-hero-city-lion.png?v=hero-background-1") center/cover no-repeat}
+.hero-visual:before,.hero-visual:after{content:"";position:absolute;inset:0;z-index:0;background-position:center;background-size:cover;background-repeat:no-repeat;pointer-events:none}
+.hero-visual:before{background-image:url("bonds-hero-city-lion.png?v=hero-background-1");animation:hero-background-city 20s ease-in-out infinite}
+.hero-visual:after{background-image:url("bonds-hero-crown-treasure.png?v=hero-background-2");animation:hero-background-crown 20s ease-in-out infinite}
+@keyframes hero-background-city{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
+@keyframes hero-background-crown{0%,45%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-visual:before,.hero-visual:after{animation:none}.hero-visual:after{opacity:0}}
+.hero-visual:before,.hero-visual:after{display:block!important}
