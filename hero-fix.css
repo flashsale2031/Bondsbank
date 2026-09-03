@@ -1,0 +1,16 @@
+.hero-art{position:relative;overflow:hidden;background:radial-gradient(circle at 76% 20%,rgba(104,160,196,.45),transparent 34%),linear-gradient(180deg,#183b56 0%,#0a2031 66%,#061523 100%)}
+.hero-art .hero-sky{display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,73,104,.35),rgba(5,18,30,.82) 72%,#04111d)}
+.hero-art .hero-tower{right:3%;top:9%;width:27%;height:75%;z-index:2;opacity:.92}
+.hero-art .hero-pedestal{right:0;width:68%;height:19%;z-index:5}
+.hero-art .hero-lion-halo{right:18%;bottom:10%;width:47%;height:70%;z-index:3}
+.hero-lion-svg{position:absolute;z-index:7;right:7%;bottom:3%;width:58%;height:94%;overflow:visible;filter:drop-shadow(0 16px 12px rgba(0,0,0,.72))}
+.hero-lion-svg .lion-gold{fill:url(#lionGold)}
+.hero-lion-svg .lion-dark{fill:#5b4215}
+.hero-lion-svg .lion-black{fill:#12100b}
+.hero-lion-svg .lion-cream{fill:#fff7dc}
+.hero-lion-svg .lion-line{stroke:#2c210c;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.hero-lion-svg .crown{fill:url(#crownGold);stroke:#5b4215;stroke-width:3}
+.hero-lion-svg .ruby{fill:#8d1420;stroke:#ffd85a;stroke-width:2}
+.hero-lion-svg .eye{fill:#111}
+@media(max-width:900px){.hero-lion-svg{right:2%;bottom:2%;width:61%;height:91%}.hero-art .hero-tower{right:0;width:28%;height:68%}}
+@media(max-width:700px){.hero-lion-svg{right:3%;width:64%;height:88%}.hero-art .hero-tower{width:29%;height:63%}}
