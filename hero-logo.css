@@ -1,7 +1,7 @@
 .hero-visual{position:relative;overflow:hidden}
 .hero-visual>.hero-art{display:none!important}
 .hero-visual>.hero-copy:before{display:none!important}
-.hero-visual:after{content:"";position:absolute;z-index:4;right:3%;bottom:-4%;width:min(43%,520px);height:92%;background:url('bonds-hero-lion-platinum.png?v=hero-logo-1') center bottom / contain no-repeat;pointer-events:none;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45))}
+.hero-visual:after{content:"";position:absolute;z-index:4;right:3%;bottom:-4%;width:min(43%,520px);height:92%;background:url('bonds-hero-lion-platinum.webp?v=hero-logo-3') center bottom / contain no-repeat;pointer-events:none;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45))}
 .hero-visual>.hero-copy{z-index:5}
 @media(max-width:760px){.hero-visual:after{right:-6%;bottom:-2%;width:55%;height:70%;opacity:.95}.hero-visual>.hero-copy{width:100%;padding-right:38%;background:linear-gradient(90deg,rgba(3,16,28,.97) 0%,rgba(3,16,28,.9) 58%,rgba(3,16,28,.35) 100%)}}
 @media(max-width:520px){.hero-visual:after{right:-9%;width:58%;height:62%;opacity:.88}.hero-visual>.hero-copy{padding-right:34%}}
