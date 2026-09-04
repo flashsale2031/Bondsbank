@@ -40,3 +40,11 @@
 @keyframes hero-background-crown{0%,45%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero-visual:before,.hero-visual:after{animation:none}.hero-visual:after{opacity:0}}
 .hero-visual:before,.hero-visual:after{display:block!important}
+
+/* Header brand logo toggles the navigation drawer. */
+.topbar .brand-lockup{appearance:none;border:0;margin:0;padding:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;border-radius:8px;transition:background-color .24s ease,box-shadow .24s ease}
+.topbar .brand-lockup:hover{background:rgba(255,211,105,.08)}
+.topbar .brand-lockup:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+.app-shell .sidebar{min-width:0;overflow:hidden;transition:width .42s cubic-bezier(.22,.61,.36,1),flex-basis .42s cubic-bezier(.22,.61,.36,1),padding-left .42s cubic-bezier(.22,.61,.36,1),padding-right .42s cubic-bezier(.22,.61,.36,1),transform .42s cubic-bezier(.22,.61,.36,1),border-color .42s ease}
+.app-shell.sidebar-collapsed .sidebar{width:0;flex-basis:0;padding-left:0;padding-right:0;border-right-color:transparent;transform:translateX(-100%)}
+@media(prefers-reduced-motion:reduce){.topbar .brand-lockup,.app-shell .sidebar{transition:none}}
