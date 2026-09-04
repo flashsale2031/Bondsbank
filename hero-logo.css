@@ -27,9 +27,9 @@
 
 .topbar .brand-lockup>div{width:var(--brand-text-width);flex:0 0 var(--brand-text-width);overflow:hidden;animation:brandTextLockupVault 30s ease-in-out infinite}
 .topbar .brand-lockup>div>strong{display:block;width:100%}
-.topbar .brand-lockup>div>small{display:flex;justify-content:flex-start;align-items:center;gap:3px;width:100%;font-size:6px;letter-spacing:0;white-space:nowrap}
+.topbar .brand-lockup>div>small{display:flex;justify-content:flex-start;align-items:center;gap:3px;width:62px;flex:none;font-size:6px;letter-spacing:0;white-space:nowrap;transform:scaleX(1.903);transform-origin:left center}
 .topbar .brand-lockup>div>small span{display:block}
-@media(max-width:760px){.topbar .brand-lockup{--brand-icon-width:40px;--brand-text-width:82px}.topbar .brand-lockup>div>small{font-size:4px;gap:2px}}
+@media(max-width:760px){.topbar .brand-lockup{--brand-icon-width:40px;--brand-text-width:82px}.topbar .brand-lockup>div>small{font-size:4px;gap:2px;width:43px;transform:scaleX(1.907)}}
 
 /* Header logo states: platinum lion, expanded vault photo, then crowned lion; 10 seconds per state. */
 .hero-visual{background:#050b12 url("bonds-hero-city-lion.png?v=hero-background-1") center/cover no-repeat}
