@@ -1,8 +1,8 @@
 const app=document.getElementById('app');
 const data={wealth:'$82,704.49',available:'$41,384.22',invested:'$31,920.17',reserve:'$9,400.10'};
 const nav=[['dashboard','▦','Dashboard'],['assets','⌁','Accounts'],['ira','◈','IRA'],['coin','₿','Bonds Coin'],['vault','▣','BONDS Vault'],['explorer','⌖','BONDS Explorer'],['trade','⌁','Trading Desk'],['wallet','▰','Wallet'],['security','◇','Security Center'],['pos','▤','Business POS']];
-const brandLion='bonds-header-olive-bonds-transparent.png?v=header-logo-4';
-const menuLogo='bonds-lion.png?v=hero-fix-6';
+const brandLion='bonds-header-olive-bonds-transparent.png?v=header-logo-5';
+const menuLogo='bonds-lion.png?v=hero-fix-7';
 const platinumLion='bonds-header-lion-platinum-gold.png?v=header-logo-1';
 const vaultLogo='bonds-header-vault.webp?v=header-logo-2';
 let menuCollapsed=false;
