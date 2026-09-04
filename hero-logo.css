@@ -31,15 +31,19 @@
 .topbar .brand-lockup>div>small span{display:block}
 @media(max-width:760px){.topbar .brand-lockup{--brand-icon-width:40px;--brand-text-width:82px}.topbar .brand-lockup>div>small{font-size:4px;gap:2px;width:43px;transform:scaleX(1.907)}}
 
-/* Hero background transition: city lion, Bonds banking window, then crown treasure; 10 seconds per photo. */
-.hero-visual{background:#050b12 url("bonds-hero-city-lion.png?v=hero-background-1") center/cover no-repeat}
-.hero-visual:before,.hero-visual:after{content:"";position:absolute;inset:0;z-index:0;background-position:center;background-size:cover;background-repeat:no-repeat;pointer-events:none}
-.hero-visual:before{background-image:url("bonds-hero-banking-window-4k-final.png?v=hero-background-2");animation:hero-background-banking-window 30s ease-in-out infinite}
-.hero-visual:after{background-image:url("bonds-hero-crown-treasure.png?v=hero-background-3");animation:hero-background-crown 30s ease-in-out infinite}
+/* Hero background transition: city lion, 4K Bonds banking window, then the original crown-treasure photo; 10 seconds per photo. */
+.hero-visual{background:#050b12 center/cover no-repeat}
+.hero-visual:before,.hero-visual:after{display:none!important}
+.hero-transition{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#050b12}
+.hero-transition-photo{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0}
+.hero-transition-photo-city{background-image:url("bonds-hero-city-lion.png?v=hero-background-1");animation:hero-background-city 30s ease-in-out infinite}
+.hero-transition-photo-banking{background-image:url("bonds-hero-banking-window-4k-final.png?v=hero-background-2");animation:hero-background-banking-window 30s ease-in-out infinite}
+.hero-transition-photo-crown{background-image:url("bonds-hero-crown-treasure.png?v=hero-background-3");animation:hero-background-crown 30s ease-in-out infinite}
+@keyframes hero-background-city{0%,27%{opacity:1}33%,60%{opacity:0}66%,100%{opacity:1}}
 @keyframes hero-background-banking-window{0%,27%{opacity:0}33%,60%{opacity:1}66%,100%{opacity:0}}
 @keyframes hero-background-crown{0%,60%{opacity:0}66%,93%{opacity:1}100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.hero-visual:before,.hero-visual:after{animation:none}.hero-visual:before,.hero-visual:after{opacity:0}}
-.hero-visual:before,.hero-visual:after{display:block!important}
+@media(prefers-reduced-motion:reduce){.hero-transition-photo{animation:none}.hero-transition-photo-city{opacity:1}.hero-transition-photo-banking,.hero-transition-photo-crown{opacity:0}}
+.hero-transition{display:block!important}
 
 /* Header brand logo toggles the navigation drawer. */
 .topbar .brand-lockup{appearance:none;border:0;margin:0;padding:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;border-radius:8px;transition:background-color .24s ease,box-shadow .24s ease}
